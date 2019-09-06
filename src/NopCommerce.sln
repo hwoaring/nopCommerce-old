@@ -61,6 +61,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Plugin.Misc.SendinBlue"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Plugin.Tax.Avalara", "Plugins\Nop.Plugin.Tax.Avalara\Nop.Plugin.Tax.Avalara.csproj", "{2426B75D-23D4-41EF-8924-47650C8A18C7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Senparc", "Senparc", "{D210D90D-6C10-4FF7-8410-6E9FE3665561}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Senparc.Weixin.MP.MvcExtension", "Senparc\Senparc.Weixin.MP.MvcExtension\Senparc.Weixin.MP.MvcExtension.csproj", "{02F42DD9-3851-488B-9558-F96FC2A90D31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Senparc.Weixin.MP.CommonService", "Senparc\Senparc.Weixin.MP.CommonService\Senparc.Weixin.MP.CommonService.csproj", "{2AA9FD88-C765-4C97-B637-138D971E519A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -339,6 +345,30 @@ Global
 		{2426B75D-23D4-41EF-8924-47650C8A18C7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2426B75D-23D4-41EF-8924-47650C8A18C7}.Release|x86.ActiveCfg = Release|Any CPU
 		{2426B75D-23D4-41EF-8924-47650C8A18C7}.Release|x86.Build.0 = Release|Any CPU
+		{02F42DD9-3851-488B-9558-F96FC2A90D31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02F42DD9-3851-488B-9558-F96FC2A90D31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02F42DD9-3851-488B-9558-F96FC2A90D31}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{02F42DD9-3851-488B-9558-F96FC2A90D31}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{02F42DD9-3851-488B-9558-F96FC2A90D31}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{02F42DD9-3851-488B-9558-F96FC2A90D31}.Debug|x86.Build.0 = Debug|Any CPU
+		{02F42DD9-3851-488B-9558-F96FC2A90D31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02F42DD9-3851-488B-9558-F96FC2A90D31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02F42DD9-3851-488B-9558-F96FC2A90D31}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{02F42DD9-3851-488B-9558-F96FC2A90D31}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{02F42DD9-3851-488B-9558-F96FC2A90D31}.Release|x86.ActiveCfg = Release|Any CPU
+		{02F42DD9-3851-488B-9558-F96FC2A90D31}.Release|x86.Build.0 = Release|Any CPU
+		{2AA9FD88-C765-4C97-B637-138D971E519A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AA9FD88-C765-4C97-B637-138D971E519A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AA9FD88-C765-4C97-B637-138D971E519A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2AA9FD88-C765-4C97-B637-138D971E519A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2AA9FD88-C765-4C97-B637-138D971E519A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2AA9FD88-C765-4C97-B637-138D971E519A}.Debug|x86.Build.0 = Debug|Any CPU
+		{2AA9FD88-C765-4C97-B637-138D971E519A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AA9FD88-C765-4C97-B637-138D971E519A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AA9FD88-C765-4C97-B637-138D971E519A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2AA9FD88-C765-4C97-B637-138D971E519A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2AA9FD88-C765-4C97-B637-138D971E519A}.Release|x86.ActiveCfg = Release|Any CPU
+		{2AA9FD88-C765-4C97-B637-138D971E519A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -369,6 +399,8 @@ Global
 		{C3822149-FBC4-40A2-AD2A-26B0DC881810} = {7881B112-7843-4542-B1F7-F99553FB9BB7}
 		{7B08DACB-8E11-416D-9DDF-B0EEF847A8ED} = {7881B112-7843-4542-B1F7-F99553FB9BB7}
 		{2426B75D-23D4-41EF-8924-47650C8A18C7} = {7881B112-7843-4542-B1F7-F99553FB9BB7}
+		{02F42DD9-3851-488B-9558-F96FC2A90D31} = {D210D90D-6C10-4FF7-8410-6E9FE3665561}
+		{2AA9FD88-C765-4C97-B637-138D971E519A} = {D210D90D-6C10-4FF7-8410-6E9FE3665561}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE72A8B2-332A-4175-9319-6726D36E9D25}
