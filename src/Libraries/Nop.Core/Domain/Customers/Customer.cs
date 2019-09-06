@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Nop.Core.Domain.Common;
@@ -27,6 +27,11 @@ namespace Nop.Core.Domain.Customers
         /// Gets or sets the customer GUID
         /// </summary>
         public Guid CustomerGuid { get; set; }
+
+        /// <summary>
+        /// 微信用户ID Hash
+        /// </summary>
+        public long? OpenIdHash { get; set; }
 
         /// <summary>
         /// Gets or sets the username
@@ -143,6 +148,21 @@ namespace Nop.Core.Domain.Customers
         /// </summary>
         public int? ShippingAddressId { get; set; }
 
+        #region 存储微信用户访问信息（已忽略数据库生成）
+        /// <summary>
+        /// 微信访问用户ID
+        /// </summary>
+        public string OpenId { get; set; }
+        /// <summary>
+        /// 微信推荐用户ID
+        /// </summary>
+        public string OpenIdReferer { get; set; }
+        /// <summary>
+        /// 推荐用户ID-Hash
+        /// </summary>
+        public long? OpenIdRefererHash { get; set; }
+        #endregion
+
         #region Navigation properties
 
         /// <summary>
@@ -198,6 +218,11 @@ namespace Nop.Core.Domain.Customers
         /// Default shipping address
         /// </summary>
         public virtual Address ShippingAddress { get; set; }
+
+        /// <summary>
+        /// 微信用户基础信息
+        /// </summary>
+        public virtual Weixin.WxUserInfoBase WxUserInfoBase { get; set; }
 
         /// <summary>
         /// Gets or sets customer addresses

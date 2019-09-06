@@ -34,6 +34,11 @@ namespace Nop.Core.Domain
         public bool AllowCustomerToSelectTheme { get; set; }
 
         /// <summary>
+        /// 仅在微信网页端显示（用于强制获取用户OpenId）
+        /// </summary>
+        public bool DisplayInWeChatPageOnly { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether mini profiler should be displayed in public store (used for debugging)
         /// </summary>
         public bool DisplayMiniProfilerInPublicStore { get; set; }
@@ -62,5 +67,10 @@ namespace Nop.Core.Domain
         /// Gets or sets a value of YouTube channel URL of the site
         /// </summary>
         public string YoutubeLink { get; set; }
+
+        /// <summary>
+        /// 新浪微博链接
+        /// </summary>
+        public string WeiboLink { get; set; }
     }
 }
