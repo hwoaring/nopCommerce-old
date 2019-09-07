@@ -59,6 +59,11 @@ namespace Nop.Core.Domain.News
         public string LinkUrl { get; set; }
 
         /// <summary>
+        /// 原文地址
+        /// </summary>
+        public string OriginalUrl { get; set; }
+
+        /// <summary>
         /// Tags标签
         /// </summary>
         public string Tags { get; set; }
@@ -107,6 +112,11 @@ namespace Nop.Core.Domain.News
         /// 是否图片新闻
         /// </summary>
         public bool IsPicture { get; set; }
+
+        /// <summary>
+        /// 是否微信格式文章
+        /// </summary>
+        public bool IsWeixin { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the news post comments are allowed 

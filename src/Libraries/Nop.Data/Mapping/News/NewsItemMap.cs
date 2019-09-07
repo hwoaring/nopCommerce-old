@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Nop.Core.Domain.News;
 
@@ -25,6 +25,15 @@ namespace Nop.Data.Mapping.News
             builder.Property(newsItem => newsItem.Full).IsRequired();
             builder.Property(newsItem => newsItem.MetaKeywords).HasMaxLength(400);
             builder.Property(newsItem => newsItem.MetaTitle).HasMaxLength(400);
+            builder.Property(newsItem => newsItem.SubTitle).HasMaxLength(400);
+            builder.Property(newsItem => newsItem.Author).HasMaxLength(400);
+            builder.Property(newsItem => newsItem.Source).HasMaxLength(400).IsUnicode(false);
+            builder.Property(newsItem => newsItem.ImgUrl).HasMaxLength(1024).IsUnicode(false);
+            builder.Property(newsItem => newsItem.LinkUrl).HasMaxLength(1024).IsUnicode(false);
+            builder.Property(newsItem => newsItem.OriginalUrl).HasMaxLength(1024).IsUnicode(false);
+            builder.Property(newsItem => newsItem.Tags).HasMaxLength(400);
+            builder.Property(newsItem => newsItem.Summary).HasMaxLength(400);
+            builder.Property(newsItem => newsItem.TemplatePage).HasMaxLength(1024).IsUnicode(false);
 
             builder.HasOne(newsItem => newsItem.Language)
                 .WithMany()

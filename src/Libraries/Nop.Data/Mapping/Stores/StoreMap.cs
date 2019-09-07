@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Nop.Core.Domain.Stores;
 
@@ -27,6 +27,8 @@ namespace Nop.Data.Mapping.Stores
             builder.Property(store => store.CompanyAddress).HasMaxLength(1000);
             builder.Property(store => store.CompanyPhoneNumber).HasMaxLength(1000);
             builder.Property(store => store.CompanyVat).HasMaxLength(1000);
+            builder.Property(store => store.ImgUrl).HasMaxLength(1024).IsUnicode(false);
+            builder.Property(store => store.LogoUrl).HasMaxLength(1024).IsUnicode(false);
 
             base.Configure(builder);
         }

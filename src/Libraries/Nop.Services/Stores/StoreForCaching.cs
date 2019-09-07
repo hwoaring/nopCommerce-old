@@ -35,6 +35,8 @@ namespace Nop.Services.Stores
             CompanyAddress = s.CompanyAddress;
             CompanyPhoneNumber = s.CompanyPhoneNumber;
             CompanyVat = s.CompanyVat;
+            ImgUrl = ImgUrl;
+            LogoUrl = LogoUrl;
         }
     }
 }

@@ -132,6 +132,12 @@ namespace Nop.Services.Common
                 address.CountryId = null;
             if (address.StateProvinceId == 0)
                 address.StateProvinceId = null;
+            if (address.Latitude == 0)
+                address.Latitude = null;
+            if (address.Longitude == 0)
+                address.Longitude = null;
+            if (address.Precision == 0)
+                address.Precision = null;
 
             _addressRepository.Insert(address);
 
@@ -156,6 +162,12 @@ namespace Nop.Services.Common
                 address.CountryId = null;
             if (address.StateProvinceId == 0)
                 address.StateProvinceId = null;
+            if (address.Latitude == 0)
+                address.Latitude = null;
+            if (address.Longitude == 0)
+                address.Longitude = null;
+            if (address.Precision == 0)
+                address.Precision = null;
 
             _addressRepository.Update(address);
 

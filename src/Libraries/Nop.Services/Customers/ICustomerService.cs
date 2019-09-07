@@ -93,6 +93,13 @@ namespace Nop.Services.Customers
         IList<Customer> GetCustomersByIds(int[] customerIds);
 
         /// <summary>
+        /// Gets a customer by openIdHash
+        /// </summary>
+        /// <param name="openIdHash">Customer openIdHash</param>
+        /// <returns>A customer</returns>
+        Customer GetCustomerByOpenIdHash(long openIdHash);
+
+        /// <summary>
         /// Gets a customer by GUID
         /// </summary>
         /// <param name="customerGuid">Customer GUID</param>

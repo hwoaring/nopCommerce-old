@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Stores;
 
@@ -20,6 +20,11 @@ namespace Nop.Core.Domain.News
         public string CommentText { get; set; }
 
         /// <summary>
+        /// 回复内容
+        /// </summary>
+        public string ReplyText { get; set; }
+
+        /// <summary>
         /// Gets or sets the news item identifier
         /// </summary>
         public int NewsItemId { get; set; }
@@ -35,6 +40,29 @@ namespace Nop.Core.Domain.News
         public bool IsApproved { get; set; }
 
         /// <summary>
+        /// 是否回复
+        /// </summary>
+        public bool IsReplied { get; set; }
+
+        /// <summary>
+        /// 是否置顶
+        /// </summary>
+        public bool IsTop { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the entity is published
+        /// </summary>
+        public bool Published { get; set; }
+
+        /// <summary>
+        /// 投票数
+        /// </summary>
+        public int Votes { get; set; }
+
+
+        public int DisplayOrder { get; set; }
+
+        /// <summary>
         /// Gets or sets the store identifier
         /// </summary>
         public int StoreId { get; set; }
@@ -43,6 +71,11 @@ namespace Nop.Core.Domain.News
         /// Gets or sets the date and time of instance creation
         /// </summary>
         public DateTime CreatedOnUtc { get; set; }
+
+        /// <summary>
+        /// 回复时间
+        /// </summary>
+        public DateTime? ReplyOnUtc { get; set; }
 
         /// <summary>
         /// Gets or sets the customer
