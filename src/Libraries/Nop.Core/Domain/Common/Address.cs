@@ -74,6 +74,21 @@ namespace Nop.Core.Domain.Common
         public string FaxNumber { get; set; }
 
         /// <summary>
+        /// 经度
+        /// </summary>
+        public decimal? Latitude { get; set; }
+
+        /// <summary>
+        /// 维度
+        /// </summary>
+        public decimal? Longitude { get; set; }
+
+        /// <summary>
+        /// 精度
+        /// </summary>
+        public decimal? Precision { get; set; }
+
+        /// <summary>
         /// Gets or sets the custom attributes (see "AddressAttribute" entity for more info)
         /// </summary>
         public string CustomAttributes { get; set; }
@@ -116,6 +131,9 @@ namespace Nop.Core.Domain.Common
                 ZipPostalCode = ZipPostalCode,
                 PhoneNumber = PhoneNumber,
                 FaxNumber = FaxNumber,
+                Latitude = Latitude,
+                Longitude = Longitude,
+                Precision = Precision,
                 CustomAttributes = CustomAttributes,
                 CreatedOnUtc = CreatedOnUtc
             };

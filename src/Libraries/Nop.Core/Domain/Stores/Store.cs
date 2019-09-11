@@ -1,4 +1,4 @@
-using Nop.Core.Domain.Localization;
+﻿using Nop.Core.Domain.Localization;
 
 namespace Nop.Core.Domain.Stores
 {
@@ -46,6 +46,16 @@ namespace Nop.Core.Domain.Stores
         /// Gets or sets the company address
         /// </summary>
         public string CompanyAddress { get; set; }
+
+        /// <summary>
+        /// Logo地址
+        /// </summary>
+        public string LogoUrl { get; set; }
+
+        /// <summary>
+        /// 封面图片地址
+        /// </summary>
+        public string ImgUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the store phone number

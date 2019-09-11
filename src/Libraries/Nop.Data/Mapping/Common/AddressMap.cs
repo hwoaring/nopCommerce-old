@@ -20,6 +20,10 @@ namespace Nop.Data.Mapping.Common
             builder.ToTable(nameof(Address));
             builder.HasKey(address => address.Id);
 
+            builder.Property(loc => loc.Latitude).HasColumnType("decimal(9, 6)");
+            builder.Property(loc => loc.Longitude).HasColumnType("decimal(9, 6)");
+            builder.Property(loc => loc.Precision).HasColumnType("decimal(9, 6)");
+
             builder.HasOne(address => address.Country)
                 .WithMany()
                 .HasForeignKey(address => address.CountryId);

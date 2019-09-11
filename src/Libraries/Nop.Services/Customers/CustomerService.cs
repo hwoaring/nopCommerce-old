@@ -387,6 +387,24 @@ namespace Nop.Services.Customers
         }
 
         /// <summary>
+        /// Gets a customer by openIdHash
+        /// </summary>
+        /// <param name="openIdHash">Customer openIdHash</param>
+        /// <returns>A customer</returns>
+        public virtual Customer GetCustomerByOpenIdHash(long openIdHash)
+        {
+            if (openIdHash <= 0)
+                return null;
+
+            var query = from c in _customerRepository.Table
+                        where c.OpenIdHash == openIdHash
+                        orderby c.Id
+                        select c;
+            var customer = query.FirstOrDefault();
+            return customer;
+        }
+
+        /// <summary>
         /// Gets a customer by GUID
         /// </summary>
         /// <param name="customerGuid">Customer GUID</param>
