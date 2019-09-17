@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Security;
 
@@ -55,7 +55,10 @@ namespace Nop.Services.Security
         public static readonly PermissionRecord ManageMaintenance = new PermissionRecord { Name = "Admin area. Manage Maintenance", SystemName = "ManageMaintenance", Category = "Configuration" };
         public static readonly PermissionRecord HtmlEditorManagePictures = new PermissionRecord { Name = "Admin area. HTML Editor. Manage pictures", SystemName = "HtmlEditor.ManagePictures", Category = "Configuration" };
         public static readonly PermissionRecord ManageScheduleTasks = new PermissionRecord { Name = "Admin area. Manage Schedule Tasks", SystemName = "ManageScheduleTasks", Category = "Configuration" };
-        
+
+        //weixin permissions
+        public static readonly PermissionRecord AccessUserPanel = new PermissionRecord { Name = "Access user area", SystemName = "AccessUserPanel", Category = "Standard" };
+
         //public store permissions
         public static readonly PermissionRecord DisplayPrices = new PermissionRecord { Name = "Public store. Display Prices", SystemName = "DisplayPrices", Category = "PublicStore" };
         public static readonly PermissionRecord EnableShoppingCart = new PermissionRecord { Name = "Public store. Enable shopping cart", SystemName = "EnableShoppingCart", Category = "PublicStore" };
@@ -116,6 +119,7 @@ namespace Nop.Services.Security
                 ManageMaintenance,
                 HtmlEditorManagePictures,
                 ManageScheduleTasks,
+                AccessUserPanel,
                 DisplayPrices,
                 EnableShoppingCart,
                 EnableWishlist,
@@ -182,6 +186,7 @@ namespace Nop.Services.Security
                         ManageMaintenance,
                         HtmlEditorManagePictures,
                         ManageScheduleTasks,
+                        AccessUserPanel,
                         DisplayPrices,
                         EnableShoppingCart,
                         EnableWishlist,
@@ -216,6 +221,7 @@ namespace Nop.Services.Security
                     CustomerRoleSystemName = NopCustomerDefaults.RegisteredRoleName,
                     PermissionRecords = new[] 
                     {
+                        AccessUserPanel,
                         DisplayPrices,
                         EnableShoppingCart,
                         EnableWishlist,
