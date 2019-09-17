@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Nop.Core.Domain.Topics;
 
@@ -21,7 +21,7 @@ namespace Nop.Data.Mapping.Topics
             builder.HasKey(template => template.Id);
 
             builder.Property(template => template.Name).HasMaxLength(400).IsRequired();
-            builder.Property(template => template.ViewPath).HasMaxLength(400).IsRequired();
+            builder.Property(template => template.ViewPath).HasMaxLength(512).IsRequired();
 
             base.Configure(builder);
         }

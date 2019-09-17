@@ -1,4 +1,4 @@
-using Nop.Core.Domain.Localization;
+﻿using Nop.Core.Domain.Localization;
 using Nop.Core.Domain.Security;
 using Nop.Core.Domain.Seo;
 using Nop.Core.Domain.Stores;
@@ -66,9 +66,24 @@ namespace Nop.Core.Domain.Topics
         public string Title { get; set; }
 
         /// <summary>
+        /// 副标题
+        /// </summary>
+        public string SubTitle { get; set; }
+
+        /// <summary>
+        /// 头部内容
+        /// </summary>
+        public string Header { get; set; }
+
+        /// <summary>
         /// Gets or sets the body
         /// </summary>
         public string Body { get; set; }
+
+        /// <summary>
+        /// 底部内容
+        /// </summary>
+        public string Footer { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the entity is published
