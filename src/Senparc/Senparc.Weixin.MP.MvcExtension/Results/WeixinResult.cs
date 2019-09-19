@@ -39,14 +39,10 @@ using System.Linq;
 using System.Text;
 using Senparc.Weixin.Entities;
 using Senparc.NeuChar.MessageHandlers;
-#if NET45
-using System.Web.Mvc;
-using System.Web;
-#else
+
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-#endif
 
 namespace Senparc.Weixin.MP.MvcExtension
 {
@@ -102,11 +98,7 @@ namespace Senparc.Weixin.MP.MvcExtension
             set { base.Content = value; }
         }
 
-#if NET45
-        public override void ExecuteResult(ControllerContext context)
-#else
         public override void ExecuteResult(ActionContext context)
-#endif
         {
             if (base.Content == null)
             {
@@ -122,16 +114,9 @@ namespace Senparc.Weixin.MP.MvcExtension
                 }
                 else
                 {
-#if NET45
-                    context.HttpContext.Response.ClearContent();
-                    context.HttpContext.Response.ContentType = "text/xml";
-                    _messageHandlerDocument.FinalResponseDocument.Save(context.HttpContext.Response.OutputStream);
-#else
-                    //context.HttpContext.Response.ClearContent();
+                    //context.HttpContext.Response.Clear();
                     context.HttpContext.Response.ContentType = "text/xml";
                     _messageHandlerDocument.FinalResponseDocument.Save(context.HttpContext.Response.Body);
-
-#endif
                 }
             }
 

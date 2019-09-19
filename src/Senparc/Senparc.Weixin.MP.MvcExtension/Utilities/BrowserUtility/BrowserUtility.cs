@@ -36,13 +36,9 @@ Detail: https://github.com/JeffreySu/WeiXinMPSDK/blob/master/license.md
 ----------------------------------------------------------------*/
 
 using System;
-#if NET45
-using System.Web;
-#else
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-#endif
 
 namespace Senparc.Weixin.MP.MvcExtension.BrowserUtility
 {
@@ -56,22 +52,6 @@ namespace Senparc.Weixin.MP.MvcExtension.BrowserUtility
         /// </summary>
         /// <param name="httpContext">HttpContextBase对象</param>
         /// <returns>true：在微信内置浏览器内。false：不在微信内置浏览器内。</returns>
-#if NET45
-       [Obsolete("当前方法已经过时，请使用 Senparc.Weixin.BrowserUtility.BrowserUtility.SideInWeixinBrowser()")]
-        public static bool SideInWeixinBrowser(this HttpContextBase httpContext)
-        {
-            var userAgent = httpContext.Request.UserAgent;
-            if (userAgent != null
-                && (userAgent.Contains("MicroMessenger") || userAgent.Contains("Windows Phone")))
-            {
-                return true;//在微信内部
-            }
-            else
-            {
-                return false;//在微信外部
-            }
-        }
-#else
         [Obsolete("当前方法已经过时，请使用 Senparc.Weixin.BrowserUtility.BrowserUtility.SideInWeixinBrowser()")]
         public static bool SideInWeixinBrowser(this HttpContext httpContext)
         {
@@ -92,6 +72,5 @@ namespace Senparc.Weixin.MP.MvcExtension.BrowserUtility
                 return false;//在微信外部
             }
         }
-#endif
     }
 }

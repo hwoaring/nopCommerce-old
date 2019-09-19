@@ -12,9 +12,6 @@ namespace Microsoft.AspNetCore.Http
 
         public static string GetAbsoluteUri(this HttpRequest request)
         {
-#if NET45
-            return request.Url.PathAndQuery;
-#else
                  return new StringBuilder()
                 .Append(request.Scheme)
                 .Append("://")
@@ -23,7 +20,6 @@ namespace Microsoft.AspNetCore.Http
                 .Append(request.Path)
                 .Append(request.QueryString)
                 .ToString();
-#endif
         }
     }
 }

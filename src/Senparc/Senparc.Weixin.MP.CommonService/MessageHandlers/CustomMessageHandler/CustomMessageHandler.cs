@@ -62,20 +62,13 @@ namespace Senparc.Weixin.MP.CommonService.CustomMessageHandler
          * 其中所有原OnXX的抽象方法已经都改为虚方法，可以不必每个都重写。若不重写，默认返回DefaultResponseMessage方法中的结果。
          */
 
-
-#if !DEBUG || NETSTANDARD1_6  || NETSTANDARD2_0 || NETCOREAPP2_0 || NETCOREAPP2_1 || NETCOREAPP2_2
-        string agentUrl = "http://localhost:12222/App/Weixin/4";
-        string agentToken = "27C455F496044A87";
-        string wiweihiKey = "CNadjJuWzyX5bz5Gn+/XoyqiqMa5DjXQ";
-#else
         //下面的Url和Token可以用其他平台的消息，或者到www.weiweihi.com注册微信用户，将自动在“微信营销工具”下得到
-        private string agentUrl = Config.SenparcWeixinSetting.AgentUrl;//这里使用了www.weiweihi.com微信自动托管平台
-        private string agentToken = Config.SenparcWeixinSetting.AgentToken;//Token
-        private string wiweihiKey = Config.SenparcWeixinSetting.SenparcWechatAgentKey;//WeiweihiKey专门用于对接www.Weiweihi.com平台，获取方式见：http://www.weiweihi.com/ApiDocuments/Item/25#51
-#endif
+        private string _agentUrl = Config.SenparcWeixinSetting.AgentUrl;//这里使用了www.weiweihi.com微信自动托管平台
+        private string _agentToken = Config.SenparcWeixinSetting.AgentToken;//Token
+        private string _wiweihiKey = Config.SenparcWeixinSetting.SenparcWechatAgentKey;//WeiweihiKey专门用于对接www.Weiweihi.com平台，获取方式见：http://www.weiweihi.com/ApiDocuments/Item/25#51
 
-        private string appId = Config.SenparcWeixinSetting.WeixinAppId;
-        private string appSecret = Config.SenparcWeixinSetting.WeixinAppSecret;
+        private string _appId = Config.SenparcWeixinSetting.WeixinAppId;
+        private string _appSecret = Config.SenparcWeixinSetting.WeixinAppSecret;
 
         /// <summary>
         /// 模板消息集合（Key：checkCode，Value：OpenId）
@@ -91,7 +84,7 @@ namespace Senparc.Weixin.MP.CommonService.CustomMessageHandler
 
             if (!string.IsNullOrEmpty(postModel.AppId))
             {
-                appId = postModel.AppId;//通过第三方开放平台发送过来的请求
+                _appId = postModel.AppId;//通过第三方开放平台发送过来的请求
             }
 
             //在指定条件下，不使用消息去重
@@ -208,7 +201,7 @@ namespace Senparc.Weixin.MP.CommonService.CustomMessageHandler
 
                     #region 暂时转发到SDK线上Demo
 
-                    agentUrl = "https://sdk.weixin.senparc.com/weixin";
+                    _agentUrl = "https://sdk.weixin.senparc.com/weixin";
                     //agentToken = WebConfigurationManager.AppSettings["WeixinToken"];//Token
 
                     //修改内容，防止死循环
@@ -220,7 +213,7 @@ namespace Senparc.Weixin.MP.CommonService.CustomMessageHandler
 
                     #endregion
 
-                    var responseXml = MessageAgent.RequestXml(this, agentUrl, agentToken, agentXml);
+                    var responseXml = MessageAgent.RequestXml(this, _agentUrl, _agentToken, agentXml);
                     //获取返回的XML
                     //上面的方法也可以使用扩展方法：this.RequestResponseMessage(this,agentUrl, agentToken, RequestDocument.ToString());
 
@@ -329,7 +322,7 @@ namespace Senparc.Weixin.MP.CommonService.CustomMessageHandler
                 .Keyword("OPENID", () =>
                 {
                     var openId = requestMessage.FromUserName;//获取OpenId
-                    var userInfo = AdvancedAPIs.UserApi.Info(appId, openId, Language.zh_CN);
+                    var userInfo = AdvancedAPIs.UserApi.Info(_appId, openId, Language.zh_CN);
 
                     defaultResponseMessage.Content = string.Format(
                         "您的OpenID为：{0}\r\n昵称：{1}\r\n性别：{2}\r\n地区（国家/省/市）：{3}/{4}/{5}\r\n关注时间：{6}\r\n关注状态：{7}",
@@ -506,7 +499,7 @@ namespace Senparc.Weixin.MP.CommonService.CustomMessageHandler
             var responseMessage = CreateResponseMessage<ResponseMessageMusic>();
             //上传缩略图
             //var accessToken = Containers.AccessTokenContainer.TryGetAccessToken(appId, appSecret);
-            var uploadResult = AdvancedAPIs.MediaApi.UploadTemporaryMedia(appId, UploadMediaFileType.image,
+            var uploadResult = AdvancedAPIs.MediaApi.UploadTemporaryMedia(_appId, UploadMediaFileType.image,
                                                          ServerUtility.ContentRootMapPath("~/Images/Logo.jpg"));
 
             //设置音乐信息
@@ -519,7 +512,7 @@ namespace Senparc.Weixin.MP.CommonService.CustomMessageHandler
             //推送一条客服消息
             try
             {
-                CustomApi.SendText(appId, OpenId, "本次上传的音频MediaId：" + requestMessage.MediaId);
+                CustomApi.SendText(_appId, OpenId, "本次上传的音频MediaId：" + requestMessage.MediaId);
 
             }
             catch
@@ -544,9 +537,9 @@ namespace Senparc.Weixin.MP.CommonService.CustomMessageHandler
              {
              //上传素材
              var dir = ServerUtility.ContentRootMapPath("~/App_Data/TempVideo/");
-                 var file = await MediaApi.GetAsync(appId, requestMessage.MediaId, dir);
-                 var uploadResult = await MediaApi.UploadTemporaryMediaAsync(appId, UploadMediaFileType.video, file, 50000);
-                 await CustomApi.SendVideoAsync(appId, base.WeixinOpenId, uploadResult.media_id, "这是您刚才发送的视频", "这是一条视频消息");
+                 var file = await MediaApi.GetAsync(_appId, requestMessage.MediaId, dir);
+                 var uploadResult = await MediaApi.UploadTemporaryMediaAsync(_appId, UploadMediaFileType.video, file, 50000);
+                 await CustomApi.SendVideoAsync(_appId, base.WeixinOpenId, uploadResult.media_id, "这是您刚才发送的视频", "这是一条视频消息");
              }).ContinueWith(async task =>
              {
                  if (task.Exception != null)
@@ -558,7 +551,7 @@ namespace Senparc.Weixin.MP.CommonService.CustomMessageHandler
                                 task.Exception.InnerException != null
                                     ? task.Exception.InnerException.Message
                                     : null);
-                     await CustomApi.SendTextAsync(appId, base.WeixinOpenId, msg);
+                     await CustomApi.SendTextAsync(_appId, base.WeixinOpenId, msg);
                  }
              });
 

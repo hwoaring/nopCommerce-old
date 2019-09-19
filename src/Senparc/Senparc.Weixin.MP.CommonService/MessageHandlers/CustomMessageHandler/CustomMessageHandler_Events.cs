@@ -191,7 +191,7 @@ QQ群：289181996
                         var filePath = "~/wwwroot/Images/Logo.thumb.jpg";
 #endif
 
-                        var uploadResult = AdvancedAPIs.MediaApi.UploadTemporaryMedia(appId, UploadMediaFileType.thumb,
+                        var uploadResult = AdvancedAPIs.MediaApi.UploadTemporaryMedia(_appId, UploadMediaFileType.thumb,
                                                                     ServerUtility.ContentRootMapPath(filePath));
                         //PS：缩略图官方没有特别提示文件大小限制，实际测试哪怕114K也会返回文件过大的错误，因此尽量控制在小一点（当前图片39K）
 
@@ -214,7 +214,7 @@ QQ群：289181996
                         var filePath = "~/wwwroot/Images/Logo.jpg";
 #endif
 
-                        var uploadResult = AdvancedAPIs.MediaApi.UploadTemporaryMedia(appId, UploadMediaFileType.image,
+                        var uploadResult = AdvancedAPIs.MediaApi.UploadTemporaryMedia(_appId, UploadMediaFileType.image,
                                                                      ServerUtility.ContentRootMapPath(filePath));
                         //设置图片信息
                         var strongResponseMessage = CreateResponseMessage<ResponseMessageImage>();
@@ -234,7 +234,7 @@ QQ群：289181996
                             new SendMenuContent("103","不满意")
                         };
                         //使用异步接口
-                        CustomApi.SendMenuAsync(appId, OpenId, "请对 Senparc.Weixin SDK 给出您的评价", menuContentList, "感谢您的参与！");
+                        CustomApi.SendMenuAsync(_appId, OpenId, "请对 Senparc.Weixin SDK 给出您的评价", menuContentList, "感谢您的参与！");
 
                         reponseMessage = new ResponseMessageNoResponse();//不返回任何消息
                     }
@@ -243,7 +243,7 @@ QQ群：289181996
                     {
                         //获取返回的XML
                         var dt1 = SystemTime.Now;
-                        reponseMessage = MessageAgent.RequestResponseMessage(this, agentUrl, agentToken, RequestDocument.ToString());
+                        reponseMessage = MessageAgent.RequestResponseMessage(this, _agentUrl, _agentToken, RequestDocument.ToString());
                         //上面的方法也可以使用扩展方法：this.RequestResponseMessage(this,agentUrl, agentToken, RequestDocument.ToString());
 
                         var dt2 = SystemTime.Now;
@@ -259,7 +259,7 @@ QQ群：289181996
                 case "Member"://托管代理会员信息
                     {
                         //原始方法为：MessageAgent.RequestXml(this,agentUrl, agentToken, RequestDocument.ToString());//获取返回的XML
-                        reponseMessage = this.RequestResponseMessage(agentUrl, agentToken, RequestDocument.ToString());
+                        reponseMessage = this.RequestResponseMessage(_agentUrl, _agentToken, RequestDocument.ToString());
                     }
                     break;
                 case "OAuth"://OAuth授权测试
@@ -335,7 +335,7 @@ QQ群：289181996
                         var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
                         try
                         {
-                            var result = AdvancedAPIs.MediaApi.UploadForeverMedia(appId, ServerUtility.ContentRootMapPath("~/Images/logo.jpg"));
+                            var result = AdvancedAPIs.MediaApi.UploadForeverMedia(_appId, ServerUtility.ContentRootMapPath("~/Images/logo.jpg"));
                             strongResponseMessage.Content = result.media_id;
                         }
                         catch (Exception e)

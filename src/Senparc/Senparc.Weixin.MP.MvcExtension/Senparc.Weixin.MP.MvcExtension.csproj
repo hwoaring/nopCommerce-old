@@ -10,4 +10,8 @@
     <PackageReference Include="Senparc.Weixin.MP" Version="16.7.17" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Nop.Services\Nop.Services.csproj" />
+  </ItemGroup>
+
 </Project>
