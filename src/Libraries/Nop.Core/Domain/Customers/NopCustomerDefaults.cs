@@ -1,4 +1,4 @@
-
+﻿
 namespace Nop.Core.Domain.Customers
 {
     /// <summary>
@@ -32,6 +32,11 @@ namespace Nop.Core.Domain.Customers
         /// Gets a system name of 'vendors' customer role
         /// </summary>
         public static string VendorsRoleName => "Vendors";
+
+        /// <summary>
+        /// 销售角色
+        /// </summary>
+        public static string SalersRoleName => "Salers";
 
         #endregion
 
