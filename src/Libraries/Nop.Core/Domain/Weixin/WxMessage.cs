@@ -9,7 +9,7 @@ namespace Nop.Core.Domain.Weixin
     /// </summary>
     public partial class WxMessage : BaseEntity
     {
-        private ICollection<Article> _articles;
+        private ICollection<MessageArticle> _articles;
 
         /// <summary>
         /// 是否显示封面
@@ -122,9 +122,9 @@ namespace Nop.Core.Domain.Weixin
         /// <summary>
         /// 图文消息列表
         /// </summary>
-        public ICollection<Article> Articles
+        public ICollection<MessageArticle> Articles
         {
-            get => _articles ?? (_articles = new List<Article>());
+            get => _articles ?? (_articles = new List<MessageArticle>());
             protected set => _articles = value;
         }
 
@@ -150,7 +150,7 @@ namespace Nop.Core.Domain.Weixin
     /// <summary>
     /// 图文信息
     /// </summary>
-    public partial class Article
+    public partial class MessageArticle
     {
         /// <summary>
         /// 图文消息标题
