@@ -27,6 +27,10 @@ namespace Nop.Web.Infrastructure
             routeBuilder.MapLocalizedRoute("Homepage", "",
 				new { controller = "Home", action = "Index" });
 
+            //weixin api
+            routeBuilder.MapLocalizedRoute("WeixinApi", "weixin/",
+                new { controller = "Weixin", action = "Index" });
+
             //login
             routeBuilder.MapLocalizedRoute("Login", "login/",
 				new { controller = "Customer", action = "Login" });

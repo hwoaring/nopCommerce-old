@@ -48,6 +48,11 @@
 
   <ItemGroup>
     <Folder Include="Plugins\" />
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
   </ItemGroup>
 
   <!-- This target execute after "Build" target.

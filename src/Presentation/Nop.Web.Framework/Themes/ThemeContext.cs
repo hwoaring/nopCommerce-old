@@ -22,6 +22,7 @@ namespace Nop.Web.Framework.Themes
         private readonly StoreInformationSettings _storeInformationSettings;
 
         private string _cachedThemeName;
+        private string _cachedThemePlatform;
 
         #endregion
 
@@ -100,6 +101,26 @@ namespace Nop.Web.Framework.Themes
 
                 //clear cache
                 _cachedThemeName = null;
+            }
+        }
+
+        /// <summary>
+        /// 当前工作平台名称
+        /// </summary>
+        public string WorkingThemePlatform
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(_cachedThemePlatform))
+                    return _cachedThemePlatform;
+
+                return _workContext.WorkingPlatform;
+            }
+
+            set
+            {
+                //clear cache
+                _cachedThemePlatform = null;
             }
         }
 

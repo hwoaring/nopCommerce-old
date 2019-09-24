@@ -2033,6 +2033,8 @@ INSERT [Setting] ([Id], [Name], [Value], [StoreId]) VALUES (611, N'proxysettings
 INSERT [Setting] ([Id], [Name], [Value], [StoreId]) VALUES (612, N'proxysettings.password', N'', 0)
 INSERT [Setting] ([Id], [Name], [Value], [StoreId]) VALUES (613, N'proxysettings.bypassonlocal', N'True', 0)
 INSERT [Setting] ([Id], [Name], [Value], [StoreId]) VALUES (614, N'proxysettings.preauthenticate', N'True', 0)
+INSERT [Setting] ([Id], [Name], [Value], [StoreId]) VALUES (615, N'storeinformationsettings.weibolink', N'http://www.weibo.com/nopCommerce', 0)
+INSERT [Setting] ([Id], [Name], [Value], [StoreId]) VALUES (616, N'storeinformationsettings.displayinwechatpageonly', N'False', 0)
 SET IDENTITY_INSERT [Setting]  OFF
 GO
 SET IDENTITY_INSERT [ScheduleTask] ON 
@@ -2121,6 +2123,7 @@ INSERT [CustomerRole] ([Id], [Name], [FreeShipping], [TaxExempt], [Active], [IsS
 INSERT [CustomerRole] ([Id], [Name], [FreeShipping], [TaxExempt], [Active], [IsSystemRole], [SystemName], [EnablePasswordLifetime], [OverrideTaxDisplayType], [DefaultTaxDisplayTypeId], [PurchasedWithProductId]) VALUES (3, N'Registered', 0, 0, 1, 1, N'Registered', 0, 0, 0, 0)
 INSERT [CustomerRole] ([Id], [Name], [FreeShipping], [TaxExempt], [Active], [IsSystemRole], [SystemName], [EnablePasswordLifetime], [OverrideTaxDisplayType], [DefaultTaxDisplayTypeId], [PurchasedWithProductId]) VALUES (4, N'Guests', 0, 0, 1, 1, N'Guests', 0, 0, 0, 0)
 INSERT [CustomerRole] ([Id], [Name], [FreeShipping], [TaxExempt], [Active], [IsSystemRole], [SystemName], [EnablePasswordLifetime], [OverrideTaxDisplayType], [DefaultTaxDisplayTypeId], [PurchasedWithProductId]) VALUES (5, N'Vendors', 0, 0, 1, 1, N'Vendors', 0, 0, 0, 0)
+INSERT [CustomerRole] ([Id], [Name], [FreeShipping], [TaxExempt], [Active], [IsSystemRole], [SystemName], [EnablePasswordLifetime], [OverrideTaxDisplayType], [DefaultTaxDisplayTypeId], [PurchasedWithProductId]) VALUES (6, N'Salers', 0, 0, 1, 1, N'Salers', 0, 0, 0, 0)
 SET IDENTITY_INSERT [CustomerRole]  OFF
 GO
 INSERT [Customer_CustomerRole_Mapping] ([Customer_Id], [CustomerRole_Id]) VALUES (1, 1)

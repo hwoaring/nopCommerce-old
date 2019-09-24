@@ -33,10 +33,13 @@ namespace Nop.Services.Stores
             DisplayOrder = s.DisplayOrder;
             CompanyName = s.CompanyName;
             CompanyAddress = s.CompanyAddress;
+            CompanyDescription = CompanyDescription;
+            CompanyBusiness = CompanyBusiness;
             CompanyPhoneNumber = s.CompanyPhoneNumber;
             CompanyVat = s.CompanyVat;
             ImgUrl = ImgUrl;
             LogoUrl = LogoUrl;
+            QrcodeUrl = QrcodeUrl;
         }
     }
 }

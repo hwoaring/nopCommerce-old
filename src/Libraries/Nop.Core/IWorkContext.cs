@@ -37,6 +37,11 @@ namespace Nop.Core
         Currency WorkingCurrency { get; set; }
 
         /// <summary>
+        /// 当前平台名称
+        /// </summary>
+        string WorkingPlatform { get; set; }
+
+        /// <summary>
         /// Gets or sets current tax display type
         /// </summary>
         TaxDisplayType TaxDisplayType { get; set; }
