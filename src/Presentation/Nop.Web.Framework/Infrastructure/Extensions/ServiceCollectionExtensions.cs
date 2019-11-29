@@ -42,6 +42,9 @@ using StackExchange.Profiling.Storage;
 using WebMarkupMin.AspNetCore2;
 using WebMarkupMin.NUglify;
 
+using Senparc.Weixin.Entities;
+using Senparc.CO2NET;
+
 namespace Nop.Web.Framework.Infrastructure.Extensions
 {
     /// <summary>
@@ -67,6 +70,12 @@ namespace Nop.Web.Framework.Infrastructure.Extensions
 
             //add hosting configuration parameters
             services.ConfigureStartupConfig<HostingConfig>(configuration.GetSection("Hosting"));
+
+            //add SenparcSetting configuration parameters
+            services.ConfigureStartupConfig<SenparcSetting>(configuration.GetSection("SenparcSetting"));
+
+            //add SenparcWeixinSetting configuration parameters
+            services.ConfigureStartupConfig<SenparcWeixinSetting>(configuration.GetSection("SenparcWeixinSetting"));
 
             //add accessor to HttpContext
             services.AddHttpContextAccessor();

@@ -7,15 +7,10 @@ using System.Xml.Linq;
 using Senparc.Weixin.Entities;
 using Senparc.NeuChar.MessageHandlers;
 
-#if NET45
-using System.Web.Mvc;
-using System.Web;
-#else
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-#endif
 
 namespace Senparc.Weixin.MP.MvcExtension
 {
@@ -81,40 +76,6 @@ namespace Senparc.Weixin.MP.MvcExtension
             set { base.Content = value; }
         }
 
-#if NET45
-        public override void ExecuteResult(ControllerContext context)
-        {
-            var content = this.Content;
-
-            if (content == null)
-            {
-                //使用IMessageHandler输出
-                if (_messageHandlerDocument == null)
-                {
-                    throw new Senparc.Weixin.Exceptions.WeixinException("执行WeixinResult时提供的MessageHandler不能为Null！", null);
-                }
-                var finalResponseDocument = _messageHandlerDocument.FinalResponseDocument;
-
-
-                if (finalResponseDocument == null)
-                {
-                    //throw new Senparc.Weixin.MP.WeixinException("FinalResponseDocument不能为Null！", null);
-                }
-                else
-                {
-                    content = finalResponseDocument.ToString();
-                }
-            }
-
-            context.HttpContext.Response.ClearContent();
-            context.HttpContext.Response.ContentType = "text/xml";
-            content = (content ?? "").Replace("\r\n", "\n");
-
-            var bytes = Encoding.UTF8.GetBytes(content);
-            context.HttpContext.Response.OutputStream.Write(bytes, 0, bytes.Length);
-        }
-
-#else
         public override async Task ExecuteResultAsync(ActionContext context)
         {
             var content = this.Content;
@@ -148,6 +109,5 @@ namespace Senparc.Weixin.MP.MvcExtension
 
             // return base.ExecuteResultAsync(context);
         }
-#endif
     }
 }

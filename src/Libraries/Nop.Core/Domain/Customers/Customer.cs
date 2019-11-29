@@ -71,7 +71,6 @@ namespace Nop.Core.Domain.Customers
         /// <summary>
         /// 销售员ID
         /// </summary>
-
         public int SalerId { get; set; }
 
         /// <summary>

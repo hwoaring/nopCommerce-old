@@ -54,6 +54,7 @@ using Nop.Services.Tax;
 using Nop.Services.Themes;
 using Nop.Services.Topics;
 using Nop.Services.Vendors;
+using Nop.Services.Weixin;
 using Nop.Web.Framework.Mvc.Routing;
 using Nop.Web.Framework.Themes;
 using Nop.Web.Framework.UI;
@@ -233,6 +234,30 @@ namespace Nop.Web.Framework.Infrastructure
             builder.RegisterType<ReviewTypeService>().As<IReviewTypeService>().SingleInstance();
             builder.RegisterType<EventPublisher>().As<IEventPublisher>().SingleInstance();
             builder.RegisterType<SettingService>().As<ISettingService>().InstancePerLifetimeScope();
+
+            //Weixin services
+            builder.RegisterType<CustomerAmountService>().As<ICustomerAmountService>().InstancePerLifetimeScope();
+            builder.RegisterType<CustomerAssetService>().As<ICustomerAssetService>().InstancePerLifetimeScope();
+            builder.RegisterType<CustomerPointService>().As<ICustomerPointService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxAutoReplyKeyRuleService>().As<IWxAutoReplyKeyRuleService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxAutoReplyService>().As<IWxAutoReplyService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxButtonService>().As<IWxButtonService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxButtonValueService>().As<IWxButtonValueService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxLocationService>().As<IWxLocationService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxMatchRuleService>().As<IWxMatchRuleService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxMenuService>().As<IWxMenuService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxMessageService>().As<IWxMessageService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxQrChannelService>().As<IWxQrChannelService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxQrGroupService>().As<IWxQrGroupService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxQrImageService>().As<IWxQrImageService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxQrLimitExtensionService>().As<IWxQrLimitExtensionService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxQrLimitService>().As<IWxQrLimitService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxQrTempService>().As<IWxQrTempService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxShareCountService>().As<IWxShareCountService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxShareListService>().As<IWxShareListService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxUserGroupService>().As<IWxUserGroupService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxUserInfoBaseService>().As<IWxUserInfoBaseService>().InstancePerLifetimeScope();
+            builder.RegisterType<WxUserInfoService>().As<IWxUserInfoService>().InstancePerLifetimeScope();
 
             //plugin managers
             builder.RegisterGeneric(typeof(PluginManager<>)).As(typeof(IPluginManager<>)).InstancePerLifetimeScope();

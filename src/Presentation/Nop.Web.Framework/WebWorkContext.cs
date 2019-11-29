@@ -47,6 +47,7 @@ namespace Nop.Web.Framework
         private Vendor _cachedVendor;
         private Language _cachedLanguage;
         private Currency _cachedCurrency;
+        private string _cachedPlatform;   //当前平台：手机orPC
         private TaxDisplayType? _cachedTaxDisplayType;
 
         #endregion
@@ -456,6 +457,24 @@ namespace Nop.Web.Framework
 
                 //then reset the cached value
                 _cachedCurrency = null;
+            }
+        }
+
+        public virtual string WorkingPlatform
+        {
+            get
+            {
+                //whether there is a cached value
+                if (_cachedPlatform != null)
+                    return _cachedPlatform;
+
+                return string.Empty;
+            }
+
+            set
+            {
+                //reset the cached value
+                _cachedPlatform = null;
             }
         }
 

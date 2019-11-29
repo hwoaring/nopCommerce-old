@@ -48,6 +48,16 @@ namespace Nop.Core.Domain.Stores
         public string CompanyAddress { get; set; }
 
         /// <summary>
+        /// 描述
+        /// </summary>
+        public string CompanyDescription { get; set; }
+
+        /// <summary>
+        /// 经营范围
+        /// </summary>
+        public string CompanyBusiness { get; set; }
+
+        /// <summary>
         /// Logo地址
         /// </summary>
         public string LogoUrl { get; set; }
@@ -56,6 +66,11 @@ namespace Nop.Core.Domain.Stores
         /// 封面图片地址
         /// </summary>
         public string ImgUrl { get; set; }
+
+        /// <summary>
+        /// 二维码图片地址
+        /// </summary>
+        public string QrcodeUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the store phone number

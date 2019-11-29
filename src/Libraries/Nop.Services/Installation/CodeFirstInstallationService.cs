@@ -32,6 +32,7 @@ using Nop.Core.Domain.Tasks;
 using Nop.Core.Domain.Tax;
 using Nop.Core.Domain.Topics;
 using Nop.Core.Domain.Vendors;
+using Nop.Core.Domain.Weixin;
 using Nop.Core.Infrastructure;
 using Nop.Data.Extensions;
 using Nop.Services.Common;
@@ -4417,13 +4418,21 @@ namespace Nop.Services.Installation
                 IsSystemRole = true,
                 SystemName = NopCustomerDefaults.VendorsRoleName
             };
+            var crSalers = new CustomerRole
+            {
+                Name = "Salers",
+                Active = true,
+                IsSystemRole = true,
+                SystemName = NopCustomerDefaults.SalersRoleName
+            };
             var customerRoles = new List<CustomerRole>
             {
                 crAdministrators,
                 crForumModerators,
                 crRegistered,
                 crGuests,
-                crVendors
+                crVendors,
+                crSalers
             };
             _customerRoleRepository.Insert(customerRoles);
 
@@ -6343,9 +6352,11 @@ namespace Nop.Services.Installation
                 DisplayMiniProfilerInPublicStore = false,
                 DisplayMiniProfilerForAdminOnly = false,
                 DisplayEuCookieLawWarning = false,
+                DisplayInWeChatPageOnly = false,
                 FacebookLink = "http://www.facebook.com/nopCommerce",
                 TwitterLink = "https://twitter.com/nopCommerce",
                 YoutubeLink = "http://www.youtube.com/user/nopCommerce",
+                WeiboLink = "http://www.weibo.com/",
                 HidePoweredByNopCommerce = false
             });
 
